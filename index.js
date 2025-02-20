@@ -5,7 +5,10 @@ const port=9000
 const mongoo=require("mongoose")
 mongoo.connect(process.env.URI).then(()=>console.log("Connected to mongo db🥳")).catch((e)=>console.log("err at connection with mongo db😔"))
 const app=express()
-app.use(cors())
+app.use(cors({
+    origin:"https://aggreatef.vercel.app/",
+    credentials:true
+}))
 app.use(express.json())
 const schema=new mongoo.Schema({
     Name:String,
