@@ -4,8 +4,9 @@ require("dotenv").config()
 const port=9000
 const mongoo=require("mongoose")
 mongoo.connect(process.env.URI).then(()=>console.log("Connected to mongo db🥳")).catch((e)=>console.log("err at connection with mongo db😔"))
-app.use(cors())
+
 const app=express()
+app.use(cors())
 app.use(express.json())
 const schema=new mongoo.Schema({
     Name:String,
